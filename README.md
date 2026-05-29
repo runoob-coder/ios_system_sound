@@ -17,6 +17,15 @@ The system sounds are all stored in/System/Library/Audio/UISounds/.
 IosSystemSound().play(.photoShutter);
 ```
 
+## [SystemSoundID](https://pub.dev/documentation/ios_system_sound/latest/enum_ios_system_sounds/SystemSoundID.html)
+
+List of all system sounds used in iOS
+
+https://pub.dev/documentation/ios_system_sound/latest/enum_ios_system_sounds/SystemSoundID.html
+
+> Note: 不同的 iOS 版本和设备，其支持的 ID 集合可能略有不同。
+> 持续补充中...
+
 ## References 参考
 
 https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MultimediaPG/UsingAudio/UsingAudio.html
