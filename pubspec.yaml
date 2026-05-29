@@ -1,7 +1,15 @@
 name: ios_system_sound
 description: "Playing UI Sound Effects or Invoking Vibration Using System Sound Services"
 version: 0.0.1
-homepage:
+homepage: https://github.com/runoob-coder/ios_system_sound
+repository: https://github.com/runoob-coder/ios_system_sound
+issue_tracker: https://github.com/runoob-coder/ios_system_sound/issues
+topics:
+  - sound
+  - voice
+  - audio
+  - systemsound
+  - cupertino
 
 environment:
   sdk: ^3.12.0
