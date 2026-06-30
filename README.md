@@ -1,5 +1,7 @@
 # ios_system_sound
 
+使用系统声音服务播放 UI 音效或触发振动。
+
 Playing UI Sound Effects or Invoking Vibration Using System Sound Services
 
 There are some predefined system sounds, for the system sound ID in the range 1000 to 2000 (decimal), 
@@ -34,6 +36,8 @@ https://developer.apple.com/documentation/audiotoolbox/audioservicesplaysystemso
 
 https://github.com/TUNER88/iOSSystemSoundsLibrary
 
-## ☕️ Buy Me a Coffee 请我喝咖啡
+## ☕️ Buy Me a Coffee / 请我喝咖啡
 
-https://ko-fi.com/noob_coder
+<a href="https://ko-fi.com/noob_coder" target="_blank">
+  <img height="36" src="https://storage.ko-fi.com/cdn/kofi1.png?v=3" alt="Buy Me a Coffee at ko-fi.com" />
+</a>
