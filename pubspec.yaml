@@ -1,6 +1,6 @@
 name: ios_system_sound
-description: "Playing UI Sound Effects or Invoking Vibration Using System Sound Services. 使用系统声音服务播放 UI 音效或触发振动。"
-version: 0.0.1
+description: "Playing UI Sound Effects or Invoking Vibration Using System Sound Services on iOS. 使用系统声音服务（System Sound Services）播放 iOS 系统 UI 音效或触发振动的 Flutter 插件。"
+version: 0.0.2
 homepage: https://github.com/runoob-coder/ios_system_sound
 repository: https://github.com/runoob-coder/ios_system_sound
 issue_tracker: https://github.com/runoob-coder/ios_system_sound/issues
@@ -8,11 +8,11 @@ topics:
   - sound
   - voice
   - audio
-  - systemsound
+  - system-sound
   - cupertino
 
 environment:
-  sdk: ^3.12.0
+  sdk: ^3.10.0
   flutter: '>=3.3.0'
 
 dependencies:

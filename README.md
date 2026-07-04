@@ -1,40 +1,63 @@
-# ios_system_sound
+# iOS System Sound
 
-使用系统声音服务播放 UI 音效或触发振动。
+Playing UI Sound Effects or Invoking Vibration Using System Sound Services on iOS.
 
-Playing UI Sound Effects or Invoking Vibration Using System Sound Services
+使用系统声音服务（System Sound Services）播放 iOS 系统 UI 音效或触发振动的 Flutter 插件。
 
-There are some predefined system sounds, for the system sound ID in the range 1000 to 2000 (decimal), 
-as shown below (from 2.0 to 5.0 beta). 
+---
 
-The system sounds are all stored in/System/Library/Audio/UISounds/.
+## 🚀 Installation / 安装
 
-> Note: Sounds played with System Sound Services are not subject to configuration using your audio session. 
-> As a result, you cannot keep the behavior of System Sound Services audio in line with other audio behavior in your application.
-> This is the most important reason to avoid using System Sound Services for any audio apart from its intended uses
+👉 [pub.dev Install Guide / 安装指南](https://pub.dev/packages/ios_system_sound/install)
 
-## 📦 Usage 用法
+---
+
+## 📦 Usage / 用法
 
 ```dart
-IosSystemSound().play(.photoShutter);
+// Camera shutter / 相机快门声
+IosSystemSound().play(SystemSoundID.photoShutter);
+
+// Message sent / 发送消息
+IosSystemSound().play(SystemSoundID.sentMessage);
+
+// Unlock / 解锁
+IosSystemSound().play(SystemSoundID.unlock);
 ```
 
-## 🔊 [SystemSoundID](https://pub.dev/documentation/ios_system_sound/latest/enum_ios_system_sounds/SystemSoundID.html)
+---
 
-List of all system sounds used in iOS
+## 🔊 SystemSoundID
 
-https://pub.dev/documentation/ios_system_sound/latest/enum_ios_system_sounds/SystemSoundID.html
+iOS predefines system sounds in the range 1000~2000 (decimal). All sound files are stored in `/System/Library/Audio/UISounds/`.
 
-> Note: 不同的 iOS 版本和设备，其支持的 ID 集合可能略有不同。
-> 持续补充中...
+iOS 预定义了编号 1000~2000（十进制）范围内的系统声音，所有声音文件存储在 `/System/Library/Audio/UISounds/` 目录下。
 
-## 📚 References 参考
+For the complete list of sound IDs, see the documentation:
 
-https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MultimediaPG/UsingAudio/UsingAudio.html
+完整的声音 ID 列表请查看文档：
 
-https://developer.apple.com/documentation/audiotoolbox/audioservicesplaysystemsound(_:)
+👉 [SystemSoundID Enum Reference / 枚举参考](https://pub.dev/documentation/ios_system_sound/latest/enum_ios_system_sounds/SystemSoundID.html)
 
-https://github.com/TUNER88/iOSSystemSoundsLibrary
+> [!NOTE]
+> The set of supported sound IDs may vary slightly across different iOS versions and devices. This library is being continuously supplemented.
+>
+> 不同的 iOS 版本和设备，其支持的声音 ID 集合可能略有不同，本库持续补充中。
+
+> [!NOTE]
+> Sounds played via System Sound Services are not subject to Audio Session configuration, so they cannot be aligned with other audio behavior in your app. This is the main reason to avoid using System Sound Services for anything other than its intended purpose.
+>
+> 通过 System Sound Services 播放的声音不受 Audio Session 配置影响，因此无法与 App 中其他音频行为保持一致。这也是不应将 System Sound Services 用于其预期用途以外场景的最主要原因。
+
+---
+
+## 📚 References / 参考
+
+- [Apple - Using Audio (System Sound Services)](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MultimediaPG/UsingAudio/UsingAudio.html)
+- [AudioServicesPlaySystemSound(_:)](https://developer.apple.com/documentation/audiotoolbox/audioservicesplaysystemsound(_:))
+- [iOSSystemSoundsLibrary](https://github.com/TUNER88/iOSSystemSoundsLibrary)
+
+---
 
 ## ☕️ Buy Me a Coffee / 请我喝咖啡
 
