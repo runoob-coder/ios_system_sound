@@ -4,13 +4,9 @@ Playing UI Sound Effects or Invoking Vibration Using System Sound Services on iO
 
 使用系统声音服务（System Sound Services）播放 iOS 系统 UI 音效或触发振动的 Flutter 插件。
 
----
-
 ## 🚀 Installation / 安装
 
 👉 [pub.dev Install Guide / 安装指南](https://pub.dev/packages/ios_system_sound/install)
-
----
 
 ## 📦 Usage / 用法
 
@@ -24,8 +20,6 @@ IosSystemSound().play(SystemSoundID.sentMessage);
 // Unlock / 解锁
 IosSystemSound().play(SystemSoundID.unlock);
 ```
-
----
 
 ## 🔊 SystemSoundID
 
@@ -49,15 +43,11 @@ For the complete list of sound IDs, see the documentation:
 >
 > 通过 System Sound Services 播放的声音不受 Audio Session 配置影响，因此无法与 App 中其他音频行为保持一致。这也是不应将 System Sound Services 用于其预期用途以外场景的最主要原因。
 
----
-
 ## 📚 References / 参考
 
 - [Apple - Using Audio (System Sound Services)](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/MultimediaPG/UsingAudio/UsingAudio.html)
 - [AudioServicesPlaySystemSound(_:)](https://developer.apple.com/documentation/audiotoolbox/audioservicesplaysystemsound(_:))
 - [iOSSystemSoundsLibrary](https://github.com/TUNER88/iOSSystemSoundsLibrary)
-
----
 
 ## ☕️ Buy Me a Coffee / 请我喝咖啡
 
