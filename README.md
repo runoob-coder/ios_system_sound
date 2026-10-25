@@ -9,6 +9,7 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/runoob-coder/ios_system_sound)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/runoob-coder/ios_system_sound.svg?style=social)][GitHub]
+[![CI](https://img.shields.io/github/actions/workflow/status/runoob-coder/ios_system_sound/analyze.yml?label=CI)](https://github.com/runoob-coder/ios_system_sound/actions/workflows/analyze.yml)
 
 Playing UI sound effects or invoking vibration using System Sound Services on iOS.
 
