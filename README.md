@@ -12,7 +12,7 @@
 
 Playing UI sound effects or invoking vibration using System Sound Services on iOS.
 
-English | [简体中文](README_CN.md)
+English | [简体中文](https://github.com/runoob-coder/ios_system_sound/blob/master/README_CN.md)
 
 ## ✨ Features
 
@@ -26,9 +26,10 @@ English | [简体中文](README_CN.md)
 
 ## 📦 Installation
 
-```yaml
-dependencies:
-  ios_system_sound: ^0.1.0
+Add the latest version with:
+
+```bash
+flutter pub add ios_system_sound
 ```
 
 Then import it:

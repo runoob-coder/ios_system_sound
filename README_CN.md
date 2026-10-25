@@ -24,9 +24,10 @@
 
 ## 📦 安装
 
-```yaml
-dependencies:
-  ios_system_sound: ^0.1.0
+用下面的命令安装最新版本：
+
+```bash
+flutter pub add ios_system_sound
 ```
 
 然后在代码中导入：

@@ -31,8 +31,8 @@ void main() {
 
     expect(find.byType(CupertinoSliverNavigationBar), findsOneWidget);
     expect(find.byType(CupertinoSearchTextField), findsOneWidget);
-    expect(find.text('Vibrate'), findsWidgets);
-    expect(find.text('Camera shutter'), findsOneWidget);
+    expect(find.text('Mail'), findsWidgets);
+    expect(find.text('newMail'), findsOneWidget);
   });
 
   testWidgets('keeps the search field pinned while scrolling', (
@@ -93,7 +93,7 @@ void main() {
     await tester.pumpWidget(const ExampleApp());
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Camera shutter'));
+    await tester.tap(find.text('newMail'));
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
@@ -110,7 +110,7 @@ void main() {
       expect(find.byType(UnsupportedPlatformBanner), findsOneWidget);
 
       // Interaction must stay safe outside of iOS (no-op instead of a crash).
-      await tester.tap(find.text('Vibrate'));
+      await tester.tap(find.text('newMail'));
       await tester.pumpAndSettle();
 
       expect(tester.takeException(), isNull);

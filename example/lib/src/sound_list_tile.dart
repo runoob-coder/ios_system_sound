@@ -21,12 +21,12 @@ class SoundListTile extends StatelessWidget {
   final ValueChanged<SystemSoundID> onPlay;
 
   @override
-  Widget build(BuildContext context) {
+  CupertinoListTile build(BuildContext context) {
     final foreground = isPlaying
         ? CupertinoColors.white
         : CupertinoColors.secondaryLabel.resolveFrom(context);
 
-    return CupertinoListTile(
+    return .new(
       onTap: () => onPlay(soundId),
       leading: AnimatedContainer(
         duration: const Duration(milliseconds: 180),

@@ -75,18 +75,6 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
     }
   }
 
-  Future<void> _vibrate() async {
-    setState(() => _error = null);
-    try {
-      await _sound.vibrate();
-    } catch (error) {
-      if (!mounted) {
-        return;
-      }
-      setState(() => _error = '$error');
-    }
-  }
-
   /// Plays every sound of a category one after another: each sample runs to
   /// completion, then waits [_sampleDelay] before the next one starts.
   Future<void> _playSequence(List<SystemSoundID> sounds) async {
@@ -121,7 +109,10 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
           ),
           SliverPersistentHeader(
             pinned: true,
-            delegate: _PinnedSearchBar(child: _buildSearchField()),
+            delegate: _PinnedHeader(
+              extent: _PinnedHeader.searchFieldExtent,
+              child: _buildSearchField(),
+            ),
           ),
           SliverToBoxAdapter(
             child: Column(
@@ -141,7 +132,6 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
               ],
             ),
           ),
-          if (_query.isEmpty) SliverToBoxAdapter(child: _buildActionsSection()),
           ...categories.map(
             (category) => SliverToBoxAdapter(
               child: _buildCategorySection(
@@ -170,8 +160,8 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
     );
   }
 
-  Widget _buildSearchField() {
-    return Padding(
+  Padding _buildSearchField() {
+    return .new(
       padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 12.0),
       child: CupertinoSearchTextField(
         controller: _searchController,
@@ -181,8 +171,8 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
     );
   }
 
-  Widget _buildError() {
-    return Padding(
+  Padding _buildError() {
+    return .new(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Text(
         _error!,
@@ -191,38 +181,14 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
     );
   }
 
-  Widget _buildActionsSection() {
-    return CupertinoListSection.insetGrouped(
-      children: [
-        CupertinoListTile(
-          leading: const Icon(CupertinoIcons.padlock_solid),
-          title: const Text('Vibrate'),
-          subtitle: Text(
-            '${SystemSoundID.vibrate.value} · kSystemSoundID_Vibrate',
-          ),
-          onTap: _vibrate,
-        ),
-        CupertinoListTile(
-          leading: const Icon(CupertinoIcons.waveform),
-          title: const Text('Camera shutter'),
-          subtitle: Text(
-            '${SystemSoundID.photoShutter.value} · ${SystemSoundID.photoShutter.category.label}',
-          ),
-          trailing: const CupertinoListTileChevron(),
-          onTap: () => _play(SystemSoundID.photoShutter),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildCategorySection(
+  CupertinoListSection _buildCategorySection(
     BuildContext context,
     SystemSoundCategory category,
     List<SystemSoundID> sounds,
   ) {
     final visible = _filtered(sounds);
 
-    return CupertinoListSection.insetGrouped(
+    return .insetGrouped(
       header: Row(
         mainAxisAlignment: .spaceBetween,
         children: [
@@ -249,14 +215,15 @@ class _SoundExplorerScreenState extends State<SoundExplorerScreen> {
   }
 }
 
-/// Docks the search field under the navigation bar so it stays reachable while
-/// the catalogue scrolls underneath it.
-class _PinnedSearchBar extends SliverPersistentHeaderDelegate {
-  const _PinnedSearchBar({required this.child});
+/// Docks the search field at the top of the scroll view so it stays reachable
+/// while the catalogue scrolls underneath it.
+class _PinnedHeader extends SliverPersistentHeaderDelegate {
+  const _PinnedHeader({required this.extent, required this.child});
 
-  /// Height of a `CupertinoSearchTextField` (36) plus the padding around it.
-  static const double extent = 56.0;
+  /// Height of a `CupertinoSearchTextField` (36) plus its padding.
+  static const double searchFieldExtent = 56.0;
 
+  final double extent;
   final Widget child;
 
   @override
@@ -288,6 +255,6 @@ class _PinnedSearchBar extends SliverPersistentHeaderDelegate {
   double get minExtent => extent;
 
   @override
-  bool shouldRebuild(covariant _PinnedSearchBar oldDelegate) =>
-      oldDelegate.child != child;
+  bool shouldRebuild(covariant _PinnedHeader oldDelegate) =>
+      oldDelegate.child != child || oldDelegate.extent != extent;
 }

@@ -20,7 +20,7 @@ export 'enum/ios_system_sounds.dart';
 class IosSystemSound {
   IosSystemSound();
 
-  IosSystemSoundPlatform get _platform => IosSystemSoundPlatform.instance;
+  IosSystemSoundPlatform get _platform => .instance;
 
   /// Plays a predefined [soundId].
   ///

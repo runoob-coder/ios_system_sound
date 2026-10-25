@@ -9,8 +9,8 @@ class UnsupportedPlatformBanner extends StatelessWidget {
   final TargetPlatform platform;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
+  Padding build(BuildContext context) {
+    return .new(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: DecoratedBox(
         decoration: BoxDecoration(

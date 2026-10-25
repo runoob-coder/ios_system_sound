@@ -14,10 +14,7 @@ void main() {
     app.main();
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Camera shutter'));
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('photoShutter').first);
+    await tester.tap(find.text('newMail'));
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
@@ -36,12 +33,6 @@ void main() {
   });
 
   testWidgets('triggers vibration', (WidgetTester tester) async {
-    app.main();
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Vibrate'));
-    await tester.pumpAndSettle();
-
     await sound.vibrate();
   });
 }
