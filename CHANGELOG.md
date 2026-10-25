@@ -1,3 +1,7 @@
+## 0.1.2
+
+- 👷 **CI**: run `flutter analyze` (plugin + example) on push and PR.
+
 ## 0.1.1
 
 - 📝 **Docs**: improved the documentation.
