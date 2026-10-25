@@ -1,17 +1,52 @@
 # ios_system_sound_example
 
-Demonstrates how to use the ios_system_sound plugin.
+Demonstrates the [`ios_system_sound`](../README.md) plugin.
 
-## Getting Started
+The app lets you browse every predefined iOS system sound — grouped by
+`SystemSoundCategory` — play each sample, trigger vibration, and play a whole
+category in sequence.
 
-This project is a starting point for a Flutter application.
+## ✨ Highlights
 
-A few resources to get you started if this is your first Flutter project:
+- **Quick actions** for `vibrate()` and the camera shutter sound.
+- **Grouped catalogue**: one `CupertinoListSection` per `SystemSoundCategory`.
+- **Search** matching sound names, category names and numeric IDs.
+- **Play all** per category, so the whole range of alert tones can be auditioned
+  one after another.
+- **Platform notice** when System Sound Services is unavailable.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 🚀 Getting Started
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+cd example
+flutter pub get
+flutter run
+```
+
+> System Sound Services only exists on iOS **and the simulator does not play
+> system sounds** — run the app on a real device to hear them. On every other
+> platform the calls are no-ops and the list stays browsable.
+
+## 🧪 Tests
+
+```bash
+flutter test                          # widget tests
+flutter test integration_test          # integration tests (run on a device)
+```
+
+And Swift unit tests for the native implementation can be run from Xcode with
+`RunnerTests` (`⌘U`).
+
+## 📁 Project layout
+
+```
+example/
+  lib/
+    main.dart                            # app entry point
+    src/
+      sound_explorer_screen.dart         # grouped catalogue + search
+      sound_list_tile.dart               # a single sound row
+      unsupported_platform_banner.dart    # non-iOS notice
+  test/                                  # widget tests
+  integration_test/                      # device integration tests
+```

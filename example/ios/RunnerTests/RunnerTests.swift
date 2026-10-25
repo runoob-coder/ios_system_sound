@@ -2,28 +2,59 @@ import Flutter
 import UIKit
 import XCTest
 
-// If your plugin has been explicitly set to "type: .dynamic" in the Package.swift,
-// you will need to add your plugin as a dependency of RunnerTests within Xcode.
-
 @testable import ios_system_sound
 
-// This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
+// Unit tests covering the Swift side of the plugin.
 //
-// See https://developer.apple.com/documentation/xctest for more information about using XCTest.
+// See https://developer.apple.com/documentation/xctest for more information.
 
 class RunnerTests: XCTestCase {
 
-  func testGetPlatformVersion() {
+  private func handle(
+    method: String,
+    arguments: Any? = nil
+  ) -> Any? {
     let plugin = IosSystemSoundPlugin()
+    let call = FlutterMethodCall(methodName: method, arguments: arguments)
 
-    let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
-
-    let resultExpectation = expectation(description: "result block must be called.")
+    var value: Any?
+    var called = false
     plugin.handle(call) { result in
-      XCTAssertEqual(result as! String, "iOS " + UIDevice.current.systemVersion)
-      resultExpectation.fulfill()
+      value = result
+      called = true
     }
-    waitForExpectations(timeout: 1)
+
+    XCTAssertTrue(called, "The result block must be called.")
+    return value
   }
 
+  func testPlayWithValidSoundId() {
+    XCTAssertNil(handle(method: "play", arguments: ["soundId": 1108]))
+  }
+
+  func testVibrate() {
+    XCTAssertNil(handle(method: "vibrate"))
+  }
+
+  func testPlayWithMissingArgument() {
+    guard let error = handle(method: "play") as? FlutterError else {
+      return XCTFail("A FlutterError is expected for missing arguments.")
+    }
+    XCTAssertEqual(error.code, "INVALID_ARGS")
+  }
+
+  func testPlayWithInvalidArgumentType() {
+    guard let error = handle(method: "play", arguments: ["soundId": "shutter"]) as? FlutterError
+    else {
+      return XCTFail("A FlutterError is expected for non numeric arguments.")
+    }
+    XCTAssertEqual(error.code, "INVALID_ARGS")
+  }
+
+  func testUnsupportedMethod() {
+    guard let value = handle(method: "unknownMethod") else {
+      return XCTFail("FlutterMethodNotImplemented is expected.")
+    }
+    XCTAssertTrue(value is NSObject)
+  }
 }

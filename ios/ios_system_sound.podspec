@@ -4,14 +4,15 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'ios_system_sound'
-  s.version          = '0.0.1'
-  s.summary          = 'A new Flutter project.'
+  s.version          = '0.1.0'
+  s.summary          = 'Playing UI sound effects or invoking vibration using System Sound Services on iOS.'
   s.description      = <<-DESC
-A new Flutter project.
+A Flutter plugin that plays iOS predefined UI sound effects and triggers
+vibration through System Sound Services (AudioToolbox).
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/runoob-coder/ios_system_sound'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'noob_coder' => 'https://github.com/runoob-coder' }
   s.source           = { :path => '.' }
   s.source_files = 'ios_system_sound/Sources/ios_system_sound/**/*'
   s.dependency 'Flutter'
