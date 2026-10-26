@@ -3,8 +3,24 @@ name: Analyze
 on:
   push:
     branches: [ master, main ]
+    paths:
+      - "example/**"
+      - "lib/**"
+      - "test/**"
+      - "ios/**"
+      - "analysis_options.yaml"
+      - "pubspec.yaml"
+      - ".github/workflows/analyze.yml"
   pull_request:
     branches: [ master, main ]
+    paths:
+      - "example/**"
+      - "lib/**"
+      - "test/**"
+      - "ios/**"
+      - "analysis_options.yaml"
+      - "pubspec.yaml"
+      - ".github/workflows/analyze.yml"
   workflow_dispatch:
 
 concurrency:
